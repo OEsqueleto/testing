@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneios de Xadrez CBX</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Adicionar um favicon genérico ou remover se não tiver um -->
+    <!-- <link rel="icon" type="image/x-icon" href="img/favicon.ico"> -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Torneios de Xadrez CBX</h1>
+            <p>Encontre torneios de xadrez organizados pela Confederação Brasileira de Xadrez</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filters">
+            <h2>Filtros</h2>
+            <div class="filter-grid">
+                <div class="filter-item">
+                    <label for="ano">Ano:</label>
+                    <input type="text" id="ano" placeholder="Ex: 2025">
+                </div>
+                <div class="filter-item">
+                    <label for="mes">Mês:</label>
+                    <select id="mes">
+                        <option value="">Todos</option>
+                        <option value="01">Janeiro</option>
+                        <option value="02">Fevereiro</option>
+                        <option value="03">Março</option>
+                        <option value="04">Abril</option>
+                        <option value="05">Maio</option>
+                        <option value="06">Junho</option>
+                        <option value="07">Julho</option>
+                        <option value="08">Agosto</option>
+                        <option value="09">Setembro</option>
+                        <option value="10">Outubro</option>
+                        <option value="11">Novembro</option>
+                        <option value="12">Dezembro</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="local">Local:</label>
+                    <input type="text" id="local" placeholder="Ex: SP, Rio de Janeiro">
+                </div>
+                <div class="filter-item">
+                    <label for="ritmo">Ritmo:</label>
+                    <select id="ritmo">
+                        <option value="">Todos</option>
+                        <option value="Clássico">Clássico</option>
+                        <option value="Rápido">Rápido</option>
+                        <option value="Blitz">Blitz</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="rating">Rating:</label>
+                    <select id="rating">
+                        <option value="">Todos</option>
+                        <option value="CBX">CBX</option>
+                        <option value="FIDE">FIDE</option>
+                        <option value="CBX e FIDE">CBX e FIDE</option>
+                    </select>
+                </div>
+            </div>
+            <button id="buscar" class="btn-primary">Buscar Torneios</button>
+        </section>
+
+        <section class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Carregando torneios...</p>
+        </section>
+
+        <section class="tournaments" id="tournaments">
+            <!-- Os cartões de torneios serão inseridos aqui via JavaScript -->
+        </section>
+
+        <section class="no-results" id="no-results" style="display: none;">
+            <p>Nenhum torneio encontrado com os filtros selecionados.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Dados extraídos de <a href="https://www.cbx.org.br/torneios" target="_blank">CBX - Torneios</a></p>
+            <p>&copy; 2025 Site de Torneios da CBX</p>
+        </div>
+    </footer>
+
+    <template id="tournament-card-template">
+        <div class="tournament-card">
+            <div class="card-header">
+                <h3 class="tournament-name"></h3>
+                <span class="tournament-id"></span>
+            </div>
+            <div class="card-body">
+                <div class="card-info">
+                    <div class="info-item">
+                        <span class="icon">⏱️</span>
+                        <span class="ritmo"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">🏆</span>
+                        <span class="rating"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <span class="local"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📅</span>
+                        <span class="periodo"></span>
+                    </div>
+                </div>
+                <div class="card-details" style="display: none;">
+                    <div class="details-item">
+                        <strong>Organizador:</strong>
+                        <span class="organizador"></span>
+                    </div>
+                    <div class="details-item">
+                        <strong>Observação:</strong>
+                        <span class="observacao"></span>
+                    </div>
+                    <div class="details-item link-item">
+                        <a class="regulamento" href="#" target="_blank">Ver Regulamento</a>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-toggle">Ver mais</button>
+        </div>
+    </template>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
